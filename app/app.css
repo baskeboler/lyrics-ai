@@ -1,15 +1,93 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    color: #e5eefc;
+    background: #07111f;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  textarea {
+    field-sizing: content;
+  }
+}
+
+@layer components {
+  .studio-surface {
+    background:
+      linear-gradient(180deg, rgba(15, 23, 42, 0.9), rgba(8, 14, 28, 0.9)),
+      radial-gradient(circle at top, rgba(245, 158, 11, 0.08), transparent 36%);
+    backdrop-filter: blur(18px);
+  }
+
+  .field {
+    @apply space-y-2;
+  }
+
+  .field label {
+    @apply block text-sm font-medium text-slate-200;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    @apply w-full rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-sm text-slate-100 outline-none transition;
+  }
+
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus {
+    @apply border-amber-300/70 ring-2 ring-amber-300/20;
+  }
+
+  .primary-button {
+    @apply rounded-full bg-amber-300 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-amber-200 disabled:cursor-not-allowed disabled:bg-slate-500;
+  }
+
+  .secondary-button {
+    @apply rounded-full border border-white/12 bg-white/6 px-4 py-2 text-sm font-medium text-slate-100 transition hover:bg-white/12 disabled:cursor-not-allowed disabled:text-slate-500;
+  }
+
+  .icon-button {
+    @apply h-9 w-9 rounded-full border border-white/10 bg-white/6 text-sm text-slate-100 transition hover:bg-white/12 disabled:cursor-not-allowed disabled:text-slate-500;
+  }
+
+  .chip-button {
+    @apply rounded-full border border-emerald-300/18 bg-emerald-400/8 px-3 py-2 text-sm capitalize text-emerald-100 transition hover:bg-emerald-300/16;
+  }
+
+  .tab-button {
+    @apply rounded-full border border-white/10 bg-transparent px-4 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/6;
+  }
+
+  .tab-button-active {
+    @apply rounded-full border border-amber-300/30 bg-amber-300/16 px-4 py-2 text-sm font-medium text-amber-100;
+  }
 }
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
-
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
-  }
+  @apply antialiased;
 }

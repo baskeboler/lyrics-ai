@@ -1,13 +1,13 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
+import { LyricStudioPage } from "~/features/studio/LyricStudioPage";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Lyric Studio" },
+    { name: "description", content: "Generate, edit, and iterate on song lyrics in a structured studio workspace." },
   ];
 }
 
 export default function Home() {
-  return <Welcome />;
+  return <LyricStudioPage />;
 }

@@ -1,8 +1,8 @@
 export function StudioFooter() {
   return (
-    <footer className="flex flex-wrap items-center justify-between gap-3 px-1 text-sm text-slate-400">
+    <footer className="flex flex-col gap-2 px-1 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
       <p>Fast loops only: tweak, generate, edit, regenerate, compare, restore.</p>
-      <p>Mock generation is active for this first implementation slice.</p>
+      <p>Mock generation remains active for this implementation slice.</p>
     </footer>
   );
 }

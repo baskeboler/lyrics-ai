@@ -58,6 +58,7 @@ export function SongDNAForm() {
       <div className="field">
         <label>Energy: {config.energy}</label>
         <input
+          className="slider-input"
           type="range"
           min="0"
           max="100"

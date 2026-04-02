@@ -39,6 +39,7 @@ export function HookBuilder() {
       <div className="field">
         <label>Hook strength: {hook.strength}</label>
         <input
+          className="slider-input"
           type="range"
           min="0"
           max="100"

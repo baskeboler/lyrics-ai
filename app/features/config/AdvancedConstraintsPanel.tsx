@@ -6,20 +6,26 @@ export function AdvancedConstraintsPanel() {
   const [isOpen, setIsOpen] = useState(false);
   const constraints = useStudioStore((store) => store.config.constraints);
   const updateConfig = useStudioStore((store) => store.updateConfig);
+  const summary = [
+    constraints.avoidCliches ? "avoid cliches" : "cliches allowed",
+    `${constraints.rhymeDensity}% rhyme`,
+    `${constraints.weirdness}% weirdness`,
+    constraints.explicitness,
+  ].join(" · ");
 
   return (
-    <section className="space-y-4 rounded-3xl border border-white/10 bg-black/15 px-4 py-4">
-      <button
-        className="flex w-full items-center justify-between text-left text-sm font-medium text-white"
-        type="button"
-        onClick={() => setIsOpen((current) => !current)}
-      >
-        <span>Advanced constraints</span>
-        <span className="text-slate-400">{isOpen ? "Hide" : "Show"}</span>
+    <section className={isOpen ? "sidebar-panel sidebar-panel-open" : "sidebar-panel"}>
+      <button className="sidebar-disclosure" type="button" onClick={() => setIsOpen((current) => !current)}>
+        <div className="min-w-0">
+          <p className="text-base font-semibold text-white">Advanced constraints</p>
+          <p className="mt-1 text-sm text-slate-500">Dial in strictness, weirdness, and negative instructions.</p>
+          {!isOpen ? <p className="sidebar-summary">{summary}</p> : null}
+        </div>
+        <span className="mt-0.5 text-[0.68rem] uppercase tracking-[0.24em] text-slate-500">{isOpen ? "Hide" : "Open"}</span>
       </button>
 
       {isOpen ? (
-        <div className="space-y-4">
+        <div className="studio-divider space-y-4 px-4 pb-4 pt-4">
           <label className="flex items-center justify-between gap-3 text-sm text-slate-200">
             <span>Avoid cliches</span>
             <input
@@ -40,6 +46,7 @@ export function AdvancedConstraintsPanel() {
           <div className="field">
             <label>Rhyme density: {constraints.rhymeDensity}</label>
             <input
+              className="slider-input"
               type="range"
               min="0"
               max="100"
@@ -59,6 +66,7 @@ export function AdvancedConstraintsPanel() {
           <div className="field">
             <label>Weirdness: {constraints.weirdness}</label>
             <input
+              className="slider-input"
               type="range"
               min="0"
               max="100"

@@ -21,14 +21,14 @@
   "devDependencies": {
     "@netlify/vite-plugin": "^2.11.2",
     "@netlify/vite-plugin-react-router": "^3.1.1",
-    "@react-router/dev": "7.13.1",
+    "@react-router/dev": "7.18.0",
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^22",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
-    "vite": "^7.1.7",
+    "vite": "^8.0.16",
     "vite-tsconfig-paths": "^5.1.4"
   }
 }
